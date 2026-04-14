@@ -8,9 +8,6 @@ use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
@@ -24,19 +21,12 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'=> 'required',
-            'password'=> 'required'
+            'email'=> 'required|email',
+            'password'=> 'required|string'
         ];
     }
 
     public function getCredentials(){
-        $email = $this->get('email');
-        $password = $this->get('password');
-
-        if($this->isEmail()){
-
-        }
+        return $this->only('email', 'password');
     }
-
-    public function isEmail
 }
