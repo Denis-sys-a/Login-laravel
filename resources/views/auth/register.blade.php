@@ -6,18 +6,9 @@
     <title>Register</title>
 </head>
 <body>
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <form action="/register" method = "POST">
         @csrf
-        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="username" placeholder="Username">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Contraseña">
         <input type="password" name="password_confirmation" placeholder="Confirmar contraseña">

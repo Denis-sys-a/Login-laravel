@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterRequest extends FormRequest
@@ -20,20 +19,13 @@ class RegisterRequest extends FormRequest
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name'=> 'required|string|max:100',
-            'email'=> 'required|string|email|max:150|unique:users,email',
+            'username'=> 'required|unique:users,username',
+            'email'=> 'required|unique:users,email',
             'password'=> 'required|string|min:6|confirmed',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'email.unique' => 'Este correo ya esta registrado.',
-            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'password_confirmation' => 'required|same:password',
         ];
     }
 }
