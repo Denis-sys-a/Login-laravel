@@ -8,7 +8,7 @@
 <body>
     <form action="/register" method = "POST">
         @csrf
-        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="name" placeholder="Nombre Completo">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Contraseña">
         <input type="password" name="password_confirmation" placeholder="Confirmar contraseña">
