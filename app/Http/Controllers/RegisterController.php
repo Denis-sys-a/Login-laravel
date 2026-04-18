@@ -20,6 +20,6 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request){
         $user = User::create($request->validated());
         Auth::login($user); // login automático
-        return redirect('/login')->with('success', 'Usuario registrado correctamente');
+        return redirect('/home')->with('success', 'Usuario registrado correctamente');
     }
 }
